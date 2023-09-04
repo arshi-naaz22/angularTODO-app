@@ -1,0 +1,45 @@
+<!-- <div class="todo-item completed" *ngFor="let todo of todos" [class.completed]="todo.completed"> -->
+    <div class="todo-item completed"  (click)="onTodoClicked()" [class.completed]="todo.completed">
+    <div class="check-box">
+     <i class="material-symbols-outlined">Check</i>
+    </div>
+    <div class="todo-text">
+    {{todo.text}}
+    </div>
+    <div class="todo-control-box " (click)="$event.stopPropagation()">
+        <div class="todo-control-button" (click)="onEditClicked()">
+            <i class="material-symbols-outlined"
+            #tootip="matTooltip"
+            matTooltip="Edit todo"
+            matTooltipPosition="above"
+            matTooltipHideDelay="100"
+            >Edit</i>
+        </div>
+        <div class="todo-control-button is-danger" (click)="onDeleteClicked()">
+            <i class="material-symbols-outlined"
+            #tootip="matTooltip"
+            matTooltip="Delete todo"
+            matTooltipPosition="above"
+            matTooltipHideDelay="100"
+            >Delete</i>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="todo-item completed">
+    <div class="check-box">
+     <i class="material-symbols-outlined">Check</i>
+    </div>
+    <div class="todo-text">
+           this has only one line of text lorem
+    </div>
+
+    <div class="todo-control-box">
+        <div class="todo-control-button">
+            <i class="material-symbols-outlined">Edit</i>
+        </div>
+        <div class="todo-control-button is-danger">
+            <i class="material-symbols-outlined">Delete</i>
+        </div>
+    </div>
+</div> -->

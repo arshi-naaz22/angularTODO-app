@@ -1,0 +1,41 @@
+<section class="heading-section">
+    <h1 class="title">Welcome to your Todos webApp</h1>
+</section>
+
+<div class="container add-todo-box-container">
+    <div class="add-todo-box">
+      <form  #form="ngForm" (ngSubmit)="onSubmitForm(form)">
+        <h2>New Todo</h2>
+
+        <div class="inside">
+            <p class="tag">
+                <!-- <input class="input" ngModel name="text" type="text" placeholder="Type your to-do list"> -->
+                <input class="input" [(ngModel)] ="todo.text" name="text" #uname="ngModel" type="text" placeholder="Type your to-do list" required minlength="5" >
+            </p>
+            <p class="tag">
+                <button class="add" type="submit">
+                    <i class="material-symbols-outlined">Add</i>
+                    Add</button>
+            </p>
+        </div>
+        <p class="tododanger"  *ngIf="uname.invalid">Please enter you todo list</p>
+        <p class="tododanger" *ngIf="uname.invalid">It shouldbe more then 5 letters.</p>
+    </form>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="todos-list">
+            <app-todo-item *ngFor="let todo of todos"
+            [todo]="todo"
+            (todoClicked)="toggleCompleted(todo)"
+            (editClicked)="editTodo(todo)"
+            (deleteClicked)="deleteTodo(todo)"
+            >
+                
+            </app-todo-item>
+        </div>
+    </div>
+ 
+</section>
